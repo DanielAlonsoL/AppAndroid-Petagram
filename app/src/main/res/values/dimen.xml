@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <dimen name="activity_horizontal_margin">5dp</dimen>
+    <dimen name="activity_vertical_margin">5dp</dimen>
+    <dimen name="fab_margin">5dp</dimen>
+    <dimen name="cv_margin_bottom">30dp</dimen>
+
+    <!-- Card View -->
+    <dimen name="corner_radius_card_view">4dp</dimen>
+
+    <dimen name="width_img_foto">260dp</dimen>
+    <dimen name="height_img_foto">250dp</dimen>
+
+    <dimen name="width_card_view">260dp</dimen>
+    <dimen name="height_card_view">285dp</dimen>
+
+    <dimen name="margin_vertical_descripcion">4dp</dimen>
+    <dimen name="margin_horizontal_hueso">3dp</dimen>
+
+    <dimen name="margin_icons">8dp</dimen>
+    <dimen name="radius_button">10dp</dimen>
+
+    <dimen name="size_texto_mascota">23sp</dimen>
+    <dimen name="size_titulo">25sp</dimen>
+
+</resources>

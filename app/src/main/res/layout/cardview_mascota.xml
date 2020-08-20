@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvMascota"
+    android:layout_width="@dimen/width_card_view"
+    android:layout_height="@dimen/height_card_view"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    card_view:cardBackgroundColor="#907CAAFA"
+    card_view:cardCornerRadius="@dimen/corner_radius_card_view"
+    card_view:layout_anchorGravity="center_horizontal">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgMascota"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_img_foto"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="#FBFBFB">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/icHueso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_horizontal_hueso"
+                android:layout_marginTop="@dimen/margin_vertical_descripcion"
+                android:layout_marginRight="@dimen/margin_horizontal_hueso"
+                android:layout_marginBottom="@dimen/margin_vertical_descripcion"
+                android:src="@drawable/ic_hueso" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_horizontal_hueso"
+                android:layout_marginTop="@dimen/margin_horizontal_hueso"
+                android:layout_toEndOf="@id/icHueso"
+                android:layout_toRightOf="@id/icHueso"
+                android:textSize="@dimen/size_texto_mascota" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/icRaiting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_horizontal_hueso"
+                android:layout_marginTop="@dimen/margin_vertical_descripcion"
+                android:layout_marginRight="@dimen/margin_horizontal_hueso"
+                android:layout_marginBottom="@dimen/margin_vertical_descripcion"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_raiting"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvRaiting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_horizontal_hueso"
+                android:layout_marginTop="@dimen/margin_horizontal_hueso"
+                android:layout_toStartOf="@id/icRaiting"
+                android:layout_toLeftOf="@id/icRaiting"
+                android:textSize="@dimen/size_texto_mascota"/>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</com.google.android.material.card.MaterialCardView>
