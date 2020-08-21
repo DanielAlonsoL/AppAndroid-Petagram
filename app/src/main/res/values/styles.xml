@@ -15,6 +15,18 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Personalizado" parent="Theme.MaterialComponents.Light">
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorControlHighlight</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <!-- Image rounded -->
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

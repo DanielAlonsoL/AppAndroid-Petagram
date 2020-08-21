@@ -3,14 +3,10 @@ package com.danielalonso.materialdesign;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.ActionProvider;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
 import android.widget.Toast;
 
@@ -38,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Agregando toolbar a la pantalla principal
-        //toolbar = (MaterialToolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
+        listaMascotas = findViewById(R.id.rvMascotas);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
@@ -49,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         inicializarMascotas();
         inicializarAdaptador();
 
-        fabAgregar = (FloatingActionButton) findViewById(R.id.fabAgregar);
+        fabAgregar = findViewById(R.id.fabAgregar);
 
         fabAgregar.setOnClickListener(new View.OnClickListener() {
 
@@ -61,35 +57,44 @@ public class MainActivity extends AppCompatActivity {
                     if (result == PackageManager.PERMISSION_GRANTED) {
                         abrirCamara();
                     } else {
-                        Toast toast = Toast.makeText(MainActivity.this,"Por favor aprueba el permiso",Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(MainActivity.this, "Por favor aprueba el permiso", Toast.LENGTH_SHORT);
                         toast.show();
                     }
-                }
+            }
 
         });
 
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
+            case R.id.aboutMe:
                 // User chose the "Settings" item, show the app settings UI...
-                Toast.makeText(this,"Has seleccionado settings",Toast.LENGTH_LONG).show();
-                return true;
+                Intent about = new Intent(this, AcercaDe.class);
+                startActivity(about);
+                break;
 
-            case R.id.action_favorito:
+            case R.id.contact:
+                Intent contacto = new Intent(this, Contacto.class);
+                startActivity(contacto);
+                break;
+
+            case R.id.favorito:
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
-                Toast.makeText(this,"Has seleccionado favorito",Toast.LENGTH_LONG).show();
-                return true;
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
+                Intent fav = new Intent(this, Favoritas.class);
+                startActivity(fav);
+                break;
 
         }
+        return super.onOptionsItemSelected(item);
     }
 
     /*
@@ -111,13 +116,16 @@ public class MainActivity extends AppCompatActivity {
         listaMascotas.setAdapter(adaptador);
     }
 
-    public void inicializarMascotas(){
+    public void inicializarMascotas() {
         mascotas = new ArrayList<>();
 
-        mascotas.add(new Mascota("Osito",R.drawable.pet4,3));
-        mascotas.add(new Mascota("Chikis",R.drawable.pet3,6));
-        mascotas.add(new Mascota("Mili",R.drawable.pet2,8));
-        mascotas.add(new Mascota("Max",R.drawable.pet1,9));
-        mascotas.add(new Mascota("Felix",R.drawable.pet5,2));
+        mascotas.add(new Mascota("Lorito", R.drawable.pet6, 3));
+        mascotas.add(new Mascota("Osito", R.drawable.pet4, 3));
+        mascotas.add(new Mascota("Bugs", R.drawable.pet7, 3));
+        mascotas.add(new Mascota("Chikis", R.drawable.pet3, 6));
+        mascotas.add(new Mascota("Mili", R.drawable.pet2, 8));
+        mascotas.add(new Mascota("Max", R.drawable.pet1, 9));
+        mascotas.add(new Mascota("Felix", R.drawable.pet5, 2));
+
     }
 }
