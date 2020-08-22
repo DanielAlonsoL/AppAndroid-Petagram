@@ -3,7 +3,7 @@
 <resources>
     <dimen name="activity_horizontal_margin">5dp</dimen>
     <dimen name="activity_vertical_margin">5dp</dimen>
-    <dimen name="fab_margin">5dp</dimen>
+    <dimen name="fab_margin">15dp</dimen>
     <dimen name="cv_margin_bottom">30dp</dimen>
     <dimen name="text_margin">18dp</dimen>
 
@@ -23,6 +23,14 @@
 
     <dimen name="margin_icons">8dp</dimen>
     <dimen name="radius_button">10dp</dimen>
+
+    <!-- Perfil -->
+    <dimen name="size_foto_perfil">160dp</dimen>
+    <dimen name="activity_perfil_margin">20dp</dimen>
+
+    <dimen name="size_card_perfil">95dp</dimen>
+    <dimen name="height_card_foto">80dp</dimen>
+    <dimen name="size_card_texto">12sp</dimen>
 
     <!-- About me -->
     <dimen name="size_photo">120dp</dimen>

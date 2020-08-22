@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvPerfil"
+    android:layout_width="@dimen/size_card_perfil"
+    android:layout_height="@dimen/size_card_perfil"
+    android:layout_margin="@dimen/radius_button"
+    android:layout_gravity="center_horizontal">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_card_foto"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="#FBFBFB">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/icTotalRaiting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_raiting"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTotalRaiting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/size_card_texto" />
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</com.google.android.material.card.MaterialCardView>
+
+

@@ -21,10 +21,12 @@
         <item name="android:textColor">@color/colorText</item>
     </style>
 
+
     <!-- Image rounded -->
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+        <item name="android:scaleType">fitXY</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

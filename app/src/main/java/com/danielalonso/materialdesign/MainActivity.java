@@ -13,19 +13,27 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
+import com.danielalonso.materialdesign.adapter.MascotaAdaptador;
+import com.danielalonso.materialdesign.adapter.PageAdapter;
+import com.danielalonso.materialdesign.fragment.FragmentRecyclerView;
+import com.danielalonso.materialdesign.fragment.PerfilFragment;
+import com.danielalonso.materialdesign.pojo.Mascota;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private MaterialToolbar toolbar;
-    private ArrayList<Mascota> mascotas;
-    private RecyclerView listaMascotas;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+
     private FloatingActionButton fabAgregar;
 
     @Override
@@ -34,16 +42,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Agregando toolbar a la pantalla principal
-        toolbar = findViewById(R.id.toolbar);
+        toolbar = (MaterialToolbar) findViewById(R.id.toolbar);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+
         setSupportActionBar(toolbar);
 
-        listaMascotas = findViewById(R.id.rvMascotas);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        setUpViewPager();
+        /*
 
-        listaMascotas.setLayoutManager(llm);
-        inicializarMascotas();
-        inicializarAdaptador();
+         */
 
         fabAgregar = findViewById(R.id.fabAgregar);
 
@@ -64,6 +72,22 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+    }
+
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+
+        fragments.add(new FragmentRecyclerView());
+        fragments.add(new PerfilFragment());
+        return fragments;
+    }
+
+    private void setUpViewPager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_perfil);
     }
 
     @Override
@@ -97,6 +121,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void showFloatingActionButton() {
+        fabAgregar.show();
+    }
+
+    public void hideFloatingActionButton() {
+        fabAgregar.hide();
+    }
+
     /*
         @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -111,21 +143,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
     }
 
-    public void inicializarAdaptador(){
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, this);
-        listaMascotas.setAdapter(adaptador);
-    }
 
-    public void inicializarMascotas() {
-        mascotas = new ArrayList<>();
-
-        mascotas.add(new Mascota("Lorito", R.drawable.pet6, 3));
-        mascotas.add(new Mascota("Osito", R.drawable.pet4, 3));
-        mascotas.add(new Mascota("Bugs", R.drawable.pet7, 3));
-        mascotas.add(new Mascota("Chikis", R.drawable.pet3, 6));
-        mascotas.add(new Mascota("Mili", R.drawable.pet2, 8));
-        mascotas.add(new Mascota("Max", R.drawable.pet1, 9));
-        mascotas.add(new Mascota("Felix", R.drawable.pet5, 2));
-
-    }
 }

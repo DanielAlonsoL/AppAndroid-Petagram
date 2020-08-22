@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.danielalonso.materialdesign.adapter.MascotaAdaptador;
+import com.danielalonso.materialdesign.pojo.Mascota;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.ArrayList;

@@ -14,7 +14,10 @@
          Soy estudiante de la facultad de ingeniería UNAM, actualmente en noveno semestre de la carrera de ingeniería en computación
     </string>
 
+    <string name="texto_perfil">Snoopy</string>
+
     <string name="texto_mi_nombre"><b>DANIEL ALONSO LOPEZ</b></string>
 
     <string name="texto_enviar">Enviar</string>
+
 </resources>
